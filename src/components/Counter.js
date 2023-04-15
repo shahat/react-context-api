@@ -1,18 +1,13 @@
-import React from "react";
+import { React, useContext } from "react";
 import { CounterCxt } from "../context/CounterContext";
 function Counter() {
+  const { counter, increaseCounter, decreaseCounter } = useContext(CounterCxt);
   return (
-    <CounterCxt.Consumer>
-      {({ counter, increaseCounter, decreaseCounter }) => {
-        return (
-          <div>
-            <h3>counter value is {counter} </h3>
-            <button onClick={increaseCounter}>Increase</button>
-            <button onClick={decreaseCounter}>Decrease</button>
-          </div>
-        );
-      }}
-    </CounterCxt.Consumer>
+    <div>
+      <h3>counter value is {counter} </h3>
+      <button onClick={increaseCounter}>Increase</button>
+      <button onClick={decreaseCounter}>Decrease</button>
+    </div>
   );
 }
 
